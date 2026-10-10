@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эко-трекер — Ярослав Бормотов</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        footer {
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <img src="image/52.jpg" alt="Аватар Ярослава" class="avatar" 
+             width="120" height="120" style="border-radius: 50%;">
+        <div class="header-text">
+            <h1>🌱 Эко-активист</h1>
+            <p class="subtitle">Ярослав Бормотов · Эко-трекер</p>
+        </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Основная навигация">
+        <a href="#habits">Эко-привычки</a>
+        <a href="#initiatives">Инициативы</a>
+        <a href="#contact">Связаться</a>
+    </nav>
+
+    <main>
+        <section class="intro">
+            <p class="eyebrow">Мой экологичный маршрут</p>
+            <h2>Маленькие действия меняют город</h2>
+            <p>Отслеживаю полезные привычки, поддерживаю городские инициативы и делюсь простыми шагами к осознанному потреблению.</p>
+        </section>
+
+        <section class="habits-section" id="habits">
+            <div class="section-heading">
+                <p class="eyebrow">Flex-карточки</p>
+                <h2>Мои эко-привычки</h2>
+            </div>
+            <div class="habit-cards">
+                <article class="habit-card">
+                    <span class="habit-icon" aria-hidden="true">♻</span>
+                    <h3>Сортировка мусора</h3>
+                    <p>Разделяю стекло, пластик, бумагу и органику.</p>
+                    <div class="progress-row"><span>Прогресс</span><strong>90%</strong></div>
+                    <progress value="90" max="100">90%</progress>
+                </article>
+                <article class="habit-card">
+                    <span class="habit-icon" aria-hidden="true">◒</span>
+                    <h3>Отказ от пластика</h3>
+                    <p>Использую многоразовую бутылку и шоппер.</p>
+                    <div class="progress-row"><span>Прогресс</span><strong>75%</strong></div>
+                    <progress value="75" max="100">75%</progress>
+                </article>
+                <article class="habit-card">
+                    <span class="habit-icon" aria-hidden="true">▣</span>
+                    <h3>Экомобильность</h3>
+                    <p>Выбираю пешие маршруты, велосипед и транспорт.</p>
+                    <div class="progress-row"><span>Прогресс</span><strong>65%</strong></div>
+                    <progress value="65" max="100">65%</progress>
+                </article>
+            </div>
+        </section>
+
+        <section class="initiatives-section" id="initiatives">
+            <div class="section-heading">
+                <p class="eyebrow">Grid-дашборд</p>
+                <h2>Эко-инициативы города</h2>
+            </div>
+            <div class="initiative-grid">
+                <article class="initiative-card">
+                    <span class="card-number">01</span>
+                    <h3>Пункты приёма</h3>
+                    <p>Нахожу ближайшие пункты для бумаги, стекла, батареек и техники.</p>
+                    <a href="#contact">Узнать больше <span aria-hidden="true">→</span></a>
+                </article>
+                <article class="initiative-card">
+                    <span class="card-number">02</span>
+                    <h3>Акции</h3>
+                    <p>Участвую в субботниках и помогаю организовывать просветительские встречи.</p>
+                    <a href="#contact">Присоединиться <span aria-hidden="true">→</span></a>
+                </article>
+                <aside class="initiative-card map-card">
+                    <span class="card-number">03</span>
+                    <h3>Карта зелёных зон</h3>
+                    <p>Собираю маршруты для прогулок, отдыха и наблюдения за городской природой.</p>
+                    <a href="#contact">Открыть карту <span aria-hidden="true">→</span></a>
+                </aside>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <div>
+                <p class="eyebrow">Открыт к сотрудничеству</p>
+                <h2>Давайте сделаем город зеленее</h2>
+                <p>Напишите, если хотите предложить инициативу или присоединиться к следующей акции.</p>
+            </div>
+            <form action="#" method="post" class="contact-form">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="email" name="email" placeholder="Ваш Email" required>
+                <textarea name="message" placeholder="Ваше сообщение" rows="4" required></textarea>
+                <button type="submit">Отправить</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Ярослав Бормотов · Эко-трекер |
+           <a href="https://github.com/Exti-fg" class="footer-link">Мой GitHub</a>
+        </p>
+    </footer>
+
+
+</body>
+</html>
