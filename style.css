@@ -52,7 +52,11 @@ a { color: var(--accent-color); }
 .subtitle { color: var(--text-color); font-size: 1.1em; }
 .main-nav { display: flex; justify-content: flex-end; gap: 26px; padding: 10px 4px 38px; }
 .main-nav a { font-weight: bold; text-decoration: none; }
-.main-nav a:hover, .main-nav a:focus { color: #a54a25; text-decoration: underline; }
+.main-nav a:hover, .main-nav a:focus-visible {
+    color: #a54a25;
+    text-decoration: underline;
+}
+.main-nav a:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
 .main-nav a:active { letter-spacing: 1px; }
 
 .intro { max-width: 720px; padding: 0 4px 64px; }
@@ -68,7 +72,7 @@ a { color: var(--accent-color); }
 .progress-row { display: flex; justify-content: space-between; font-family: Arial, sans-serif; font-size: .78rem; margin-top: 22px; }
 progress { width: 100%; height: 9px; accent-color: var(--accent-color); }
 .skills-list { list-style: none; }
-.initiative-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.initiative-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .initiative-card { display: flex; flex-direction: column; min-height: 250px; padding: 26px; background: var(--main-color); }
 .initiative-card a { margin-top: auto; font-family: Arial, sans-serif; font-size: .9rem; font-weight: bold; text-decoration: none; }
 .initiative-card a:hover { color: #a54a25; text-decoration: underline; }
@@ -78,10 +82,9 @@ progress { width: 100%; height: 9px; accent-color: var(--accent-color); }
 .card-number { color: #a54a25; font-family: Arial, sans-serif; font-weight: bold; margin-bottom: 28px; }
 
 .contact-section { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; padding: 52px 0; border-top: 1px solid #c4d8c8; }
-   ========================================= */
 .contact-form {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
     gap: 12px;
 }
 
@@ -128,7 +131,8 @@ footer {
 @media (max-width: 760px) {
     .header { align-items: flex-start; flex-direction: column; }
     .main-nav { justify-content: flex-start; flex-wrap: wrap; }
-    .initiative-grid, .contact-section { grid-template-columns: 1fr; }
+    .initiative-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .contact-section { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
@@ -137,4 +141,5 @@ footer {
     .avatar { width: 88px; height: 88px; }
     h1 { font-size: 2.8rem; }
     .main-nav { gap: 14px; padding-bottom: 28px; }
+    .initiative-grid { grid-template-columns: 1fr; }
 }
