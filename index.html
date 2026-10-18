@@ -18,7 +18,7 @@
 <body>
 
     <header class="header">
-        <img src="image/52.jpg" alt="Аватар Ярослава" class="avatar" 
+        <img src="image/52.jpg" alt="Аватар Ярослава" class="avatar"
              width="120" height="120" style="border-radius: 50%;">
         <div class="header-text">
             <h1>🌱 Эко-активист</h1>
@@ -47,24 +47,24 @@
             <div class="habit-cards">
                 <article class="habit-card">
                     <span class="habit-icon" aria-hidden="true">♻</span>
-                    <h3>Сортировка мусора</h3>
+                    <h3 id="habit-sorting">Сортировка мусора</h3>
                     <p>Разделяю стекло, пластик, бумагу и органику.</p>
                     <div class="progress-row"><span>Прогресс</span><strong>90%</strong></div>
-                    <progress value="90" max="100">90%</progress>
+                    <progress value="90" max="100" aria-labelledby="habit-sorting">90%</progress>
                 </article>
                 <article class="habit-card">
                     <span class="habit-icon" aria-hidden="true">◒</span>
-                    <h3>Отказ от пластика</h3>
+                    <h3 id="habit-plastic">Отказ от пластика</h3>
                     <p>Использую многоразовую бутылку и шоппер.</p>
                     <div class="progress-row"><span>Прогресс</span><strong>75%</strong></div>
-                    <progress value="75" max="100">75%</progress>
+                    <progress value="75" max="100" aria-labelledby="habit-plastic">75%</progress>
                 </article>
                 <article class="habit-card">
                     <span class="habit-icon" aria-hidden="true">▣</span>
-                    <h3>Экомобильность</h3>
+                    <h3 id="habit-mobility">Экомобильность</h3>
                     <p>Выбираю пешие маршруты, велосипед и транспорт.</p>
                     <div class="progress-row"><span>Прогресс</span><strong>65%</strong></div>
-                    <progress value="65" max="100">65%</progress>
+                    <progress value="65" max="100" aria-labelledby="habit-mobility">65%</progress>
                 </article>
             </div>
         </section>
@@ -91,7 +91,7 @@
                     <span class="card-number">03</span>
                     <h3>Карта зелёных зон</h3>
                     <p>Собираю маршруты для прогулок, отдыха и наблюдения за городской природой.</p>
-                    <a href="#contact">Открыть карту <span aria-hidden="true">→</span></a>
+                    <a href="#contact">Предложить маршрут <span aria-hidden="true">→</span></a>
                 </aside>
             </div>
         </section>
@@ -103,9 +103,12 @@
                 <p>Напишите, если хотите предложить инициативу или присоединиться к следующей акции.</p>
             </div>
             <form action="#" method="post" class="contact-form">
-                <input type="text" name="name" placeholder="Ваше имя" required>
-                <input type="email" name="email" placeholder="Ваш Email" required>
-                <textarea name="message" placeholder="Ваше сообщение" rows="4" required></textarea>
+                <label for="contact-name">Ваше имя</label>
+                <input id="contact-name" type="text" name="name" autocomplete="name" placeholder="Иван" required>
+                <label for="contact-email">Ваш Email</label>
+                <input id="contact-email" type="email" name="email" autocomplete="email" placeholder="ivan@example.com" required>
+                <label for="contact-message">Ваше сообщение</label>
+                <textarea id="contact-message" name="message" placeholder="Предложите эко-инициативу" rows="4" required></textarea>
                 <button type="submit">Отправить</button>
             </form>
         </section>

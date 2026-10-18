@@ -3,7 +3,7 @@
     --accent-color: #14532d;
     --highlight-color: #f2b84b;
     --text-color: #183027;
-    --muted-color: #5d7167;
+    --muted-color: #56695f;
     --bg-color: #f7f6f0;
     --font-main: Georgia, 'Times New Roman', serif;
 }
@@ -20,6 +20,7 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 28px clamp(18px, 5vw, 64px);
+    overflow-wrap: anywhere;
 }
 
 h1, h2, h3, p { margin-top: 0; }
@@ -44,20 +45,18 @@ a { color: var(--accent-color); }
 .avatar {
     width: 120px;
     height: 120px;
-    border: 4px solid var(--accent-color);
     flex: 0 0 auto;
     border: 3px solid var(--accent-color);
 }
-.subtitle { color: var(--muted-color); font-size: 1.2rem; }
+.header-text { min-width: 0; }
 .subtitle { color: var(--text-color); font-size: 1.1em; }
-.main-nav { display: flex; justify-content: flex-end; gap: 26px; padding: 10px 4px 38px; }
+.main-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 26px; padding: 10px 4px 38px; }
 .main-nav a { font-weight: bold; text-decoration: none; }
 .main-nav a:hover, .main-nav a:focus-visible {
     color: #a54a25;
     text-decoration: underline;
 }
 .main-nav a:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
-.main-nav a:active { letter-spacing: 1px; }
 
 .intro { max-width: 720px; padding: 0 4px 64px; }
 .intro p:last-child, .contact-section p:last-child { color: var(--muted-color); font-size: 1.12rem; }
@@ -66,12 +65,11 @@ a { color: var(--accent-color); }
 .habits-section, .initiatives-section { padding: 34px 0 68px; }
 
 .habit-cards { display: flex; flex-wrap: wrap; gap: 18px; }
-.habit-card { flex: 1 1 250px; min-width: 0; padding: 24px; background: #fff; border-top: 5px solid var(--accent-color); box-shadow: 0 8px 22px rgba(20, 83, 45, .08); }
+.habit-card { flex: 0 0 calc((100% - 36px) / 3); min-width: 0; padding: 24px; background: #fff; border-top: 5px solid var(--accent-color); box-shadow: 0 8px 22px rgba(20, 83, 45, .08); }
 .habit-icon { display: block; color: #a54a25; font-size: 2rem; margin-bottom: 16px; }
 .habit-card p, .initiative-card p { color: var(--muted-color); }
 .progress-row { display: flex; justify-content: space-between; font-family: Arial, sans-serif; font-size: .78rem; margin-top: 22px; }
 progress { width: 100%; height: 9px; accent-color: var(--accent-color); }
-.skills-list { list-style: none; }
 .initiative-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .initiative-card { display: flex; flex-direction: column; min-height: 250px; padding: 26px; background: var(--main-color); }
 .initiative-card a { margin-top: auto; font-family: Arial, sans-serif; font-size: .9rem; font-weight: bold; text-decoration: none; }
@@ -80,8 +78,12 @@ progress { width: 100%; height: 9px; accent-color: var(--accent-color); }
 .map-card h3, .map-card a { color: #fff; }
 .map-card p { color: #dcefe2; }
 .card-number { color: #a54a25; font-family: Arial, sans-serif; font-weight: bold; margin-bottom: 28px; }
+.map-card .card-number, .map-card a:hover { color: var(--highlight-color); }
+a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+button:focus-visible { outline-color: var(--accent-color); }
 
 .contact-section { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; padding: 52px 0; border-top: 1px solid #c4d8c8; }
+.contact-section > * { min-width: 0; }
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -90,13 +92,19 @@ progress { width: 100%; height: 9px; accent-color: var(--accent-color); }
 
 .contact-form input,
 .contact-form textarea {
+    width: 100%;
+    min-width: 0;
     padding: 13px;
     border: 1px solid #b7c9bb;
     border-radius: 0;
     font: 1rem Arial, sans-serif;
-    font-size: 1em;
     transition: border-color 0.3s;
 }
+
+.contact-form label { font-weight: bold; }
+.contact-form textarea { resize: vertical; }
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: var(--muted-color); opacity: 1; }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
@@ -128,10 +136,15 @@ footer {
 
 .footer-link { font-weight: normal; }
 
-@media (max-width: 760px) {
+@media (width < 1024px) {
+    .habit-card { flex-basis: calc((100% - 18px) / 2); }
+}
+
+@media (width < 768px) {
     .header { align-items: flex-start; flex-direction: column; }
-    .main-nav { justify-content: flex-start; flex-wrap: wrap; }
-    .initiative-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .main-nav { justify-content: flex-start; }
+    .habit-card { flex-basis: 100%; }
+    .initiative-grid { grid-template-columns: 1fr; }
     .contact-section { grid-template-columns: 1fr; }
 }
 
@@ -141,5 +154,4 @@ footer {
     .avatar { width: 88px; height: 88px; }
     h1 { font-size: 2.8rem; }
     .main-nav { gap: 14px; padding-bottom: 28px; }
-    .initiative-grid { grid-template-columns: 1fr; }
 }
