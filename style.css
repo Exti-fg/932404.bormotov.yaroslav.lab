@@ -5,6 +5,7 @@
     --text-color: #183027;
     --muted-color: #56695f;
     --bg-color: #f7f6f0;
+    --surface-color: #fff;
     --font-main: Georgia, 'Times New Roman', serif;
 }
 
@@ -52,6 +53,41 @@ a { color: var(--accent-color); }
 .subtitle { color: var(--text-color); font-size: 1.1em; }
 .main-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 26px; padding: 10px 4px 38px; }
 .main-nav a { font-weight: bold; text-decoration: none; }
+.theme-toggle,
+.habit-section-toggle,
+.habit-controls button,
+.habit-actions button {
+    padding: 10px 14px;
+    border: 1px solid var(--accent-color);
+    background: var(--accent-color);
+    color: var(--bg-color);
+    font: bold .9rem Arial, sans-serif;
+    cursor: pointer;
+}
+.theme-toggle { margin-left: auto; }
+.habit-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 8px; }
+.habit-controls label { flex-basis: 100%; font-weight: bold; }
+.habit-controls input {
+    flex: 1 1 240px;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid #b7c9bb;
+    background: var(--surface-color);
+    color: var(--text-color);
+    font: 1rem Arial, sans-serif;
+}
+.habit-message { min-height: 1.55em; margin-bottom: 12px; color: var(--muted-color); }
+.habit-section-toggle,
+.habit-controls .secondary-button,
+.habit-actions .remove-habit {
+    background: transparent;
+    color: var(--accent-color);
+}
+.theme-toggle:hover,
+.habit-controls button:hover,
+.habit-actions button:hover { filter: brightness(.9); }
+.habit-controls button:focus-visible,
+.habit-actions button:focus-visible { outline: 2px solid #a54a25; outline-offset: 3px; }
 .main-nav a:hover, .main-nav a:focus-visible {
     color: #a54a25;
     text-decoration: underline;
@@ -65,11 +101,16 @@ a { color: var(--accent-color); }
 .habits-section, .initiatives-section { padding: 34px 0 68px; }
 
 .habit-cards { display: flex; flex-wrap: wrap; gap: 18px; }
-.habit-card { flex: 0 0 calc((100% - 36px) / 3); min-width: 0; padding: 24px; background: #fff; border-top: 5px solid var(--accent-color); box-shadow: 0 8px 22px rgba(20, 83, 45, .08); }
+.habit-card { flex: 0 0 calc((100% - 36px) / 3); min-width: 0; padding: 24px; background: var(--surface-color); border-top: 5px solid var(--accent-color); box-shadow: 0 8px 22px rgba(20, 83, 45, .08); transition: opacity .3s ease, transform .3s ease; }
+.habit-card.fade-out { opacity: 0; pointer-events: none; transform: translateY(8px); }
+.habit-content.collapsed { display: none; }
 .habit-icon { display: block; color: #a54a25; font-size: 2rem; margin-bottom: 16px; }
 .habit-card p, .initiative-card p { color: var(--muted-color); }
 .progress-row { display: flex; justify-content: space-between; font-family: Arial, sans-serif; font-size: .78rem; margin-top: 22px; }
-progress { width: 100%; height: 9px; accent-color: var(--accent-color); }
+.progress-track { width: 100%; height: 9px; overflow: hidden; background: var(--main-color); }
+.progress-fill { height: 100%; background: var(--accent-color); transition: width .25s ease; }
+.habit-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.habit-actions button { padding: 8px 10px; font-size: .8rem; }
 .initiative-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .initiative-card { display: flex; flex-direction: column; min-height: 250px; padding: 26px; background: var(--main-color); }
 .initiative-card a { margin-top: auto; font-family: Arial, sans-serif; font-size: .9rem; font-weight: bold; text-decoration: none; }
@@ -135,6 +176,21 @@ footer {
 }
 
 .footer-link { font-weight: normal; }
+
+body.dark-theme {
+    --main-color: #1d3528;
+    --accent-color: #b6e2c2;
+    --highlight-color: #f2b84b;
+    --text-color: #edf5ef;
+    --muted-color: #c0d0c5;
+    --bg-color: #111a15;
+    --surface-color: #1a2920;
+}
+
+body.dark-theme .map-card { background: #213c2c; }
+body.dark-theme .contact-section { border-color: #385344; }
+body.dark-theme .contact-form input,
+body.dark-theme .contact-form textarea { background: #1a2920; color: var(--text-color); border-color: #54705d; }
 
 @media (width < 1024px) {
     .habit-card { flex-basis: calc((100% - 18px) / 2); }

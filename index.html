@@ -31,6 +31,9 @@
         <a href="#habits">Эко-привычки</a>
         <a href="#initiatives">Инициативы</a>
         <a href="#contact">Связаться</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">
+            Тёмная тема
+        </button>
     </nav>
 
     <main>
@@ -41,32 +44,64 @@
         </section>
 
         <section class="habits-section" id="habits">
+            <button id="toggle-habits" class="habit-section-toggle secondary-button"
+                    type="button" aria-expanded="true" aria-controls="habit-content">
+                Скрыть секцию привычек
+            </button>
+            <div id="habit-content" class="habit-content">
             <div class="section-heading">
                 <p class="eyebrow">Flex-карточки</p>
                 <h2>Мои эко-привычки</h2>
             </div>
-            <div class="habit-cards">
-                <article class="habit-card">
+            <div class="habit-controls" aria-label="Управление привычками">
+                <label for="new-habit-name">Новая привычка</label>
+                <input id="new-habit-name" type="text" maxlength="80"
+                       placeholder="Например, использовать многоразовую бутылку">
+                <button id="add-habit" type="button">Добавить привычку</button>
+                <button id="reset-progress" type="button" class="secondary-button">Сбросить прогресс</button>
+            </div>
+            <p id="habit-message" class="habit-message" role="status" aria-live="polite"></p>
+            <div id="habit-list" class="habit-cards">
+                <article class="habit-card" data-habit-id="sorting" data-habit-name="Сортировка мусора" data-progress="90">
                     <span class="habit-icon" aria-hidden="true">♻</span>
                     <h3 id="habit-sorting">Сортировка мусора</h3>
                     <p>Разделяю стекло, пластик, бумагу и органику.</p>
                     <div class="progress-row"><span>Прогресс</span><strong>90%</strong></div>
-                    <progress value="90" max="100" aria-labelledby="habit-sorting">90%</progress>
+                    <div class="progress-track" role="progressbar" aria-label="Прогресс: Сортировка мусора"
+                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="90">
+                        <div class="progress-fill" aria-hidden="true" style="width: 90%;"></div>
+                    </div>
+                    <div class="habit-actions">
+                        <button type="button" class="mark-habit" data-action="mark">Отметить</button>
+                    </div>
                 </article>
-                <article class="habit-card">
+                <article class="habit-card" data-habit-id="plastic" data-habit-name="Отказ от пластика" data-progress="75">
                     <span class="habit-icon" aria-hidden="true">◒</span>
                     <h3 id="habit-plastic">Отказ от пластика</h3>
                     <p>Использую многоразовую бутылку и шоппер.</p>
                     <div class="progress-row"><span>Прогресс</span><strong>75%</strong></div>
-                    <progress value="75" max="100" aria-labelledby="habit-plastic">75%</progress>
+                    <div class="progress-track" role="progressbar" aria-label="Прогресс: Отказ от пластика"
+                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
+                        <div class="progress-fill" aria-hidden="true" style="width: 75%;"></div>
+                    </div>
+                    <div class="habit-actions">
+                        <button type="button" class="mark-habit" data-action="mark">Отметить</button>
+                    </div>
                 </article>
-                <article class="habit-card">
+                <article class="habit-card" data-habit-id="mobility" data-habit-name="Экомобильность" data-progress="65">
                     <span class="habit-icon" aria-hidden="true">▣</span>
                     <h3 id="habit-mobility">Экомобильность</h3>
                     <p>Выбираю пешие маршруты, велосипед и транспорт.</p>
                     <div class="progress-row"><span>Прогресс</span><strong>65%</strong></div>
-                    <progress value="65" max="100" aria-labelledby="habit-mobility">65%</progress>
+                    <div class="progress-track" role="progressbar" aria-label="Прогресс: Экомобильность"
+                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="65">
+                        <div class="progress-fill" aria-hidden="true" style="width: 65%;"></div>
+                    </div>
+                    <div class="habit-actions">
+                        <button type="button" class="mark-habit" data-action="mark">Отметить</button>
+                    </div>
                 </article>
+            </div>
             </div>
         </section>
 
